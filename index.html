@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
+  <title>Sign Up</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <style>
     * {
@@ -66,25 +66,26 @@
 <body>
 
 <div class="container">
-  <h2>Login</h2>
-  <form id="loginForm" onsubmit="return validateForm()">
+  <h2>Sign Up</h2>
+  <form id="signupForm" onsubmit="return signUp()">
     <div class="error" id="error"></div>
     <input type="text" id="username" placeholder="Username" required>
     <input type="password" id="password" placeholder="Password" required>
-    <input type="submit" value="Login">
+    <input type="submit" value="Sign Up">
   </form>
 </div>
 
 <script>
-  function validateForm() {
+  function signUp() {
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
 
-    if (username === "user" && password === "password") {
-      window.location.href = "portfolio.html";
-      return false;
+    if (localStorage.getItem(username) === null) {
+      localStorage.setItem(username, password);
+      alert("Sign up successful! You can now login.");
+      return true;
     } else {
-      document.getElementById("error").innerHTML = "Invalid username or password.";
+      document.getElementById("error").innerHTML = "Username already exists. Please choose a different username.";
       return false;
     }
   }

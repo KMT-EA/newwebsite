@@ -62,6 +62,20 @@
       color: #666;
       line-height: 1.6;
     }
+
+    .logout-btn {
+      background-color: #333;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .logout-btn:hover {
+      background-color: #666;
+    }
   </style>
 </head>
 <body>
@@ -70,6 +84,7 @@
       <li><a href="#about">About</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#contact">Contact</a></li>
+      <li><button class="logout-btn" onclick="logout()">Logout</button></li>
     </ol>
   </nav>
 
@@ -95,6 +110,14 @@
     <h2>Contact Me</h2>
     <p>You can reach me at myemail@example.com</p>
   </section>
+
+  <script>
+    function logout() {
+      if (confirm("Are you sure you want to log out?")) {
+        window.location.href = "login.html";
+      }
+    }
+  </script>
 
 </body>
 </html>
